@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ICustomerDao">
+
+    <select id="queryCustomerInfoByAccount" resultType="org.hey.modle.UserInfo">
+        SELECT *
+        from bank_customerInfo bc
+        where bc.account = #{account}
+        ORDER BY bc.quarter DESC
+    </select>
+    <select id="queryQuarter" resultType="org.hey.modle.UserInfo">
+        select *
+        from bank_customerInfo
+        where quarter = #{quarter}
+        limit 0, 1
+    </select>
+
+    <insert id="insertCustomerFil" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO bank_customerInfo(
+        <trim suffix="" suffixOverrides=",">
+            userId,areaCode, orgCode, cardCode, idCardCode, account,
+            userName, balance, interestBase, interestBalance, createTime, cteateUser, quarter
+        </trim>
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            <trim suffix="" suffixOverrides=",">
+            #{item.userId,jdbcType=BIGINT},
+            #{item.areaCode,jdbcType=VARCHAR},
+            #{item.orgCode,jdbcType=VARCHAR},
+            #{item.cardCode,jdbcType=VARCHAR},
+            #{item.idCardCode,jdbcType=VARCHAR},
+            #{item.account,jdbcType=VARCHAR},
+            #{item.userName,jdbcType=VARCHAR},
+            #{item.balance,jdbcType=VARCHAR},
+            #{item.interestBase,jdbcType=VARCHAR},
+            #{item.interestBalance,jdbcType=VARCHAR},
+            #{item.createTime,jdbcType=VARCHAR},
+            #{item.createUser,jdbcType=VARCHAR},
+            #{item.quarter,jdbcType=VARCHAR}
+            </trim>
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertCustomerFile" useGeneratedKeys="true" parameterType="java.util.List">
+        insert into bank_customerInfo( userId, areaCode, orgCode, cardCode, idCardCode, account,
+        userName, balance, interestBase, interestBalance, quarter) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            <trim suffix="" suffixOverrides=",">
+                #{item.userId,jdbcType=BIGINT},
+                #{item.areaCode,jdbcType=VARCHAR},
+                #{item.orgCode,jdbcType=VARCHAR},
+                #{item.cardCode,jdbcType=VARCHAR},
+                #{item.idCardCode,jdbcType=VARCHAR},
+                #{item.account,jdbcType=VARCHAR},
+                #{item.userName,jdbcType=VARCHAR},
+                #{item.balance,jdbcType=VARCHAR},
+                #{item.interestBase,jdbcType=VARCHAR},
+                #{item.interestBalance,jdbcType=VARCHAR},
+                #{item.quarter,jdbcType=VARCHAR}
+            </trim>
+            )
+        </foreach>
+    </insert>
+</mapper>
