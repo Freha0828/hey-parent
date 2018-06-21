@@ -1,6 +1,7 @@
 package util;
 
 import org.hey.modle.CmsResult;
+import org.hey.modle.ResponseData;
 import org.hey.service.util.BeanFactory;
 
 public class CommonUntl {
@@ -13,5 +14,14 @@ public class CommonUntl {
 		cmsResult.setMessage(message);
 		cmsResult.setSuccess(isSuccess);
 		return cmsResult;
+	}
+
+	public static  ResponseData getResponseData(String code, String msg, String count, Object data){
+		ResponseData rd = BeanFactory.createBean(ResponseData.class);
+		rd.setCode(code);
+		rd.setMsg(msg);
+		rd.setCount(count);
+		rd.setData(data);
+		return rd;
 	}
 }

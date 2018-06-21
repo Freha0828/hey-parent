@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.hey.modle.User;
@@ -10,7 +11,11 @@ public interface IUserDao {
 
 	List<User> findUserByPassword(@Param("userName")String userName,@Param("password")String password);
 
-	List<User> findAllAdministrators();
+	List<User> findAllAdministrators(Map<String,Integer> map);
 
-	List<User> findAllOperators();
+	int queryCount();
+
+	List<User> findAllOperators(Map<String,Integer> map);
+
+	int queryCountForOperator();
 }

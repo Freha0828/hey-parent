@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.IRoleDao" >
+
+
+    <select id="findRole" parameterType="Map" resultType="org.hey.modle.RoleModel">
+        select * from bank_role
+        <if test="page!=null and limit!=null">
+            limit #{page},#{limit}
+        </if>
+    </select>
+
+    <!--查询记录总数-->
+    <select id="queryCountForRole"  resultType="java.lang.Integer">
+        SELECT count(*) FROM  bank_role
+    </select>
+
+</mapper>

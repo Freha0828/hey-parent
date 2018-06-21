@@ -1,6 +1,8 @@
 package org.hey.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hey.modle.User;
 import org.hey.service.IUserService;
@@ -25,19 +27,29 @@ public class UserServiceImpl implements IUserService{
     }
 
 
-    public List<User> findAllAdministrators() {
-       List<User> adminUser = userDao.findAllAdministrators();
-       if (adminUser != null && adminUser.size() > 0){
-           return adminUser;
-       }
-       return null;
+    public List<User> findAllAdministrators(Map<String, Integer> map) {
+        List<User> administratorsUser = userDao.findAllAdministrators(map);
+        if (administratorsUser != null && administratorsUser.size() > 0){
+            return administratorsUser;
+        }
+        return null;
+
     }
 
-    public List<User> findAllOperators() {
-        List<User> operatorsUser = userDao.findAllOperators();
+    public int queryCount(){
+        return userDao.queryCount();
+    }
+
+    public List<User> findAllOperators(Map<String, Integer> map) {
+        List<User> operatorsUser = userDao.findAllOperators(map);
         if (operatorsUser != null && operatorsUser.size() > 0){
             return operatorsUser;
         }
         return null;
     }
+
+    public int queryCountForOperator() {
+        return userDao.queryCountForOperator();
+    }
+
 }

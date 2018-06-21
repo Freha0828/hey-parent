@@ -143,27 +143,27 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a _href="./pages/admin/list.jsp">
+                            <a _href="./pages/admin/adminList.jsp">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>管理员列表</cite>
                             </a>
                         </li>
                         <li>
-                            <a _href="./pages/admin/role.html">
+                            <a _href="./pages/admin/operatorList.jsp">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>操作员列表</cite><!--角色管理-->
+                                <cite>操作员列表</cite>
                             </a>
                         </li>
                         <li>
-                            <a _href="./pages/admin/cate.html">
+                            <a _href="./pages/admin/roleList.jsp">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>角色列表</cite><!--权限分类-->
+                                <cite>角色列表</cite>
                             </a>
                         </li>
                         <li>
                             <a _href="./pages/admin/rule.html">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>权限管理</cite><!--权限管理-->
+                                <cite>权限管理</cite>
                             </a>
                         </li>
                     </ul>
