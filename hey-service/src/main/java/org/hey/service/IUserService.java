@@ -17,4 +17,6 @@ public interface IUserService {
 	List<User> findAllOperators(Map<String, Integer> map);
 
 	int queryCountForOperator();
+
+	void addOperator(User user);
 }

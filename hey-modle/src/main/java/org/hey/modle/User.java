@@ -18,6 +18,11 @@ public class User implements Serializable{
 	private String password;
 	//角色id
 	private Integer roleId;
+	//电话
+	private String phoneNum;
+	//邮箱
+	private String email;
+
 	//创建时间
 	private String createTime;
 	//修改人
@@ -65,5 +70,22 @@ public class User implements Serializable{
 	}
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

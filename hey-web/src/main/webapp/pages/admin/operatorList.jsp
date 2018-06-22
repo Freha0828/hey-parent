@@ -51,8 +51,7 @@
     </div>
     <div class="weadmin-block">
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="WeAdminShow('添加用户','./add.html')"><i class="layui-icon"></i>添加</button>
-        <span class="fr" style="line-height:40px">共有数据：88 条</span>
+        <button class="layui-btn" onclick="WeAdminShow('添加用户','./operatorAdd.jsp')"><i class="layui-icon"></i>添加</button>
     </div>
 
     <table class="layui-table" id="operatorList" lay-filter="operatorList">
@@ -73,14 +72,20 @@
             ,page: true //开启分页
             ,cols: [[ //表头
                 {field: 'id', title: 'ID', width: '170', sort: true},
-                {field: 'userName', title: '用户名', width: '450'},
-                {field: 'roleId', title: '角色id', width: '120'},
-                {field: 'createTime', title: '创建时间', width: '120', sort: true},
-                {field: 'updateTime', title: '修改时间', width: '120', sort: true},
-                {field: 'updateUser', title: '修改人', width: '120', sort: true},
+                {field: 'userName', title: '用户名', width: '250'},
+                {field: 'roleId', title: '角色id', width: '200'},
+                {field: 'phoneNum', title: '电话', width: '200'},
+                {field: 'email', title: '邮箱', width: '200'},
+                {field: 'createTime', title: '创建时间', width: '200', sort: true},
+                {field: 'updateTime', title: '修改时间', width: '200', sort: true},
+                {field: 'updateUser', title: '修改人', width: '200', sort: true},
             ]]
         });
     });
+    
+    // function addOperator() {
+    //     location.href="./demo.jsp";
+    // }
 
 </script>
 </body>

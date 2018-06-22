@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.IPermissionDao" >
+
+    <select id="findPermission" parameterType="Map" resultType="org.hey.modle.PermissionModel">
+        select * from bank_permissions
+        <if test="page!=null and limit!=null">
+            limit #{page},#{limit}
+        </if>
+    </select>
+
+    <!--查询记录总数-->
+    <select id="queryCountForPermission"  resultType="java.lang.Integer">
+        SELECT count(*) FROM  bank_permissions
+    </select>
+
+</mapper>

@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.hey.modle.User;
-import org.hey.modle.UserInfo;
 
 public interface IUserDao {
 
@@ -18,4 +17,6 @@ public interface IUserDao {
 	List<User> findAllOperators(Map<String,Integer> map);
 
 	int queryCountForOperator();
+
+	void addOperator(User user);
 }

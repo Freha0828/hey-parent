@@ -7,7 +7,7 @@
 	</select>
 
 	<select id="findAllAdministrators" parameterType="Map" resultType="org.hey.modle.User">
-		select id,userName,roleId,createTime,updateUser,updateTime from bank_login where roleId = 1
+		select * from bank_login where roleId = 1
 		<if test="page!=null and limit!=null">
 			limit #{page},#{limit}
 		</if>
@@ -20,10 +20,18 @@
 
 	<select id="findAllOperators" parameterType="Map" resultType="org.hey.modle.User">
 		select * from bank_login where roleId = 2
+		<if test="page!=null and limit!=null">
+			limit #{page},#{limit}
+		</if>
 	</select>
 
 	<!--查询记录总数-->
 	<select id="queryCountForOperator"  resultType="java.lang.Integer">
         SELECT count(*) FROM  bank_login where roleId = 2
     </select>
+
+	<insert id="addOperator" parameterType="org.hey.modle.User">
+           insert into bank_login(userName, password, roleId, phoneNum, email, createTime, updateTime, updateUser)
+               values(#{userName}, #{password}, #{roleId}, #{phoneNum}, #{email}, #{createTime}, #{updateTime}, #{updateUser})
+   </insert>
 </mapper>

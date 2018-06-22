@@ -52,4 +52,8 @@ public class UserServiceImpl implements IUserService{
         return userDao.queryCountForOperator();
     }
 
+    public void addOperator(User user) {
+        userDao.addOperator(user);
+    }
+
 }
